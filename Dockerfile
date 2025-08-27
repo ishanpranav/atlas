@@ -9,10 +9,10 @@ COPY ["src/Atlas.Server/Atlas.Server.csproj", "src/Atlas.Server/"]
 RUN dotnet restore "./src/Atlas.Server/./Atlas.Server.csproj"
 COPY . .
 WORKDIR "/src/Atlas.Server"
-RUN dotnet build "./Atlas.Server.csproj" -c Release -o /app/build
+RUN dotnet build "./src/Atlas.Server.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "./Atlas.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./src/Atlas.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base as final
 WORKDIR /app

@@ -16,5 +16,5 @@ RUN dotnet publish "Atlas.Server.csproj" -c Release -o /app/publish /p:UseAppHos
 
 FROM base as final
 WORKDIR /app
-COPY --from=publish /app/publish
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Atlas.Server.dll"]

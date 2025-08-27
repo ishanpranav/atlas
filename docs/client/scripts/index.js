@@ -5,5 +5,8 @@
 window.onload = async function () {
     const inputInput = document.getElementById('inputInput');
     const outputTextarea = document.getElementById('ouputTextarea');
-    const response = await fetch("");
+    const response = await fetch("https://localhost:7137/WeatherForecast");
+    const data = await response.json();
+
+    console.log(data);
 };

@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="FormattedStrings.restext" />
+    <EmbeddedResource Include="FormattedStrings.restext" />
   </ItemGroup>
 
 </Project>

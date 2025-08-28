@@ -24,7 +24,7 @@ public class FormattedStrings
 
     public string GetCreatingPasswordText(string username)
     {
-        return string.Format(GetString("GetCreatingPasswordText{0}")!, username);
+        return string.Format(GetString("CreatingPasswordText{0}")!, username);
     }
 
     public string GetAuthenticatingText(string username)

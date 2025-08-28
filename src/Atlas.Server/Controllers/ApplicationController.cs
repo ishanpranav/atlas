@@ -46,7 +46,7 @@ public class ApplicationController : ControllerBase
 
             return Ok(new RichTextResponse()
             {
-                Value = $"Welcome, {request.Username}! Please choose a password, so I know it's you next time.",
+                Value = $"Hello, {request.Username}! Please choose a password, so I know it's you next time.",
                 IsNextPassword = true
             });
         }
@@ -67,7 +67,7 @@ public class ApplicationController : ControllerBase
         {
             return Ok(new RichTextResponse()
             {
-                Value = $"Welcome back, {user.Username}! Please remind me of your password, so I know it's you.",
+                Value = $"Hello again, {user.Username}! Please remind me of your password, so I know it's you.",
                 IsNextPassword = true
             });
         }
@@ -82,7 +82,7 @@ public class ApplicationController : ControllerBase
 
         return Ok(new RichTextResponse()
         {
-            Value = $"Your name is {user.Username} and you have {user.Credits:n2} credits. The top 10 characters are: {string.Join(", ", _context.Users.OrderByDescending(x => x.Id).Take(10).Select(x => x.Username))}. That's all you can do for now, sorry."
+            Value = $"Your name is {user.Username} and you have {user.Credits:n0} credits. The top 10 characters are: {string.Join(", ", _context.Users.OrderByDescending(x => x.Id).Take(10).Select(x => x.Username))}. That's all you can do for now, sorry."
         });
     }
 }

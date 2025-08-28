@@ -1,6 +1,6 @@
 ﻿namespace Atlas.Server.Controllers;
 
-public class RichTextResult
+public class RichTextResponse
 {
     public string? Value { get; set; }
     public bool IsNextPassword { get; set; }

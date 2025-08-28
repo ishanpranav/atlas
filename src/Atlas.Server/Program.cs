@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -30,6 +32,17 @@ internal static class Program
                     .AllowAnyHeader()
                     .AllowAnyMethod();
             });
+        });
+
+        builder.Services.AddDbContext<AtlasDbContext>(options =>
+        {
+            options.UseNpgsql(new NpgsqlConnectionStringBuilder()
+            {
+                Host = builder.Configuration["DB_HOST"],
+                Username = builder.Configuration["DB_USER"],
+                Password = builder.Configuration["DB_PASSWORD"],
+                Database = builder.Configuration["DB_DATABASE"]
+            }.ConnectionString);
         });
 
         WebApplication app = builder.Build();

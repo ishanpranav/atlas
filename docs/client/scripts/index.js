@@ -2,8 +2,8 @@
 // Copyright (c) 2025 Ishan Pranav
 // Licensed under the MIT license.
 
-//const baseUrl = 'https://ishanpranav-atlas.onrender.com/';
-const baseUrl = 'https://localhost:7137/';
+const baseUrl = 'https://ishanpranav-atlas.onrender.com/';
+//const baseUrl = 'https://localhost:7137/';
 
 const inputInput = document.getElementById('inputInput');
 const outputTextarea = document.getElementById('outputTextarea');

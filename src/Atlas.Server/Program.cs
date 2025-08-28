@@ -45,6 +45,8 @@ internal static class Program
             }.ConnectionString);
         });
 
+        builder.Services.AddSingleton<FormattedStrings>();
+
         WebApplication app = builder.Build();
 
         app.UseSwagger();

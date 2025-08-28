@@ -1,0 +1,10 @@
+﻿# FormattedStrings.restext
+
+WelcomeText=Welcome to Arcane Dominion! What is your username, brave adventurer?
+
+CreatingPasswordText{0}=Hello, {0}! Please choose a password, so I know it's you next time.
+CreatedPasswordText=A worthy password! Say anything to continue...
+
+AuthenticatingText{0}=Hello again, {0}! Please remind me of your password, so I know it's you.
+UnauthenticatedText{0}=Confound you knavish impostor! That's not {0}'s password!
+

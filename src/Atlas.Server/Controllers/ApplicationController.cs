@@ -8,11 +8,13 @@ public class ApplicationController : ControllerBase
 {
     private readonly ILogger<ApplicationController> _logger;
     private readonly AtlasDbContext _context;
+    private readonly FormattedStrings _strings;
 
-    public ApplicationController(ILogger<ApplicationController> logger, AtlasDbContext context)
+    public ApplicationController(ILogger<ApplicationController> logger, AtlasDbContext context, FormattedStrings strings)
     {
         _logger = logger;
         _context = context;
+        _strings = strings;
     }
 
     [HttpGet(Name = "GetApplication")]
@@ -20,7 +22,7 @@ public class ApplicationController : ControllerBase
     {
         return new RichTextResponse()
         {
-            Value = "Welcome to Arcane Dominion! What is your username, brave adventurer?"
+            Value = _strings.WelcomeText
         };
     }
 
@@ -46,7 +48,7 @@ public class ApplicationController : ControllerBase
 
             return Ok(new RichTextResponse()
             {
-                Value = $"Hello, {request.Username}! Please choose a password, so I know it's you next time.",
+                Value = _strings.GetCreatingPasswordText(request.Username),
                 IsNextPassword = true
             });
         }
@@ -59,7 +61,7 @@ public class ApplicationController : ControllerBase
 
             return Ok(new RichTextResponse()
             {
-                Value = "A worthy password! Say anything to continue..."
+                Value = _strings.CreatedPasswordText
             });
         }
 
@@ -67,7 +69,7 @@ public class ApplicationController : ControllerBase
         {
             return Ok(new RichTextResponse()
             {
-                Value = $"Hello again, {user.Username}! Please remind me of your password, so I know it's you.",
+                Value = _strings.GetAuthenticatingText(user.Username),
                 IsNextPassword = true
             });
         }
@@ -76,7 +78,7 @@ public class ApplicationController : ControllerBase
         {
             return Ok(new RichTextResponse()
             {
-                Value = $"Confound you knavish impostor! That's not {user.Username}'s password!",
+                Value = _strings.GetUnauthenticatedText(user.Username)
             });
         }
 

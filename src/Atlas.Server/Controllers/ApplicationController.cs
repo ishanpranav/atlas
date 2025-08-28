@@ -82,7 +82,7 @@ public class ApplicationController : ControllerBase
 
         return Ok(new RichTextResponse()
         {
-            Value = $"Your name is {user.Username} and you have {user.Credits} credits. The top 10 characters are: {string.Join(", ", _context.Users.OrderByDescending(x => x.Id).Take(10).Select(x => x.Username))}. That's all you can do for now, sorry."
+            Value = $"Your name is {user.Username} and you have {user.Credits:n2} credits. The top 10 characters are: {string.Join(", ", _context.Users.OrderByDescending(x => x.Id).Take(10).Select(x => x.Username))}. That's all you can do for now, sorry."
         });
     }
 }
